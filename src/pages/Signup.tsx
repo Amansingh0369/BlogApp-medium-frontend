@@ -5,14 +5,17 @@ import { Input } from "../components/ui/input";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
 import { motion } from "framer-motion";
 import axios from "axios";
+import Loading from "./Loading.tsx";
 
 const SignUp: React.FC = () => {
+    const [loading, setLoading] = useState(false);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
   async  function signup(){
+      setLoading(true);
         try {
             const response = await axios.post("https://blogapp-medium-backend.onrender.com/api/v1/user/signup", {
                 name: username,
@@ -26,6 +29,11 @@ const SignUp: React.FC = () => {
         }catch (e) {
             alert("Error during signup");
         }
+        setLoading(false);
+    }
+
+    if(loading){
+        return <Loading/>
     }
 
     return (

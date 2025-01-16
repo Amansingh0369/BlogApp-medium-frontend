@@ -16,25 +16,18 @@ const Home: React.FC = () => {
                     Welcome to GreenBlog
                 </h1>
                 <p className="text-xl sm:text-2xl mb-12 text-green-800 max-w-2xl mx-auto">
-                    Cultivate your thoughts, grow your ideas, and plant the seeds of inspiration
+                    Cultivate your thoughts, grow your ideas, and plant the seeds of
+                    inspiration
                 </p>
                 <div className="space-x-4">
-                    <Button  className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                    <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
                         <Link to="/signup">Get Started</Link>
                     </Button>
-                    <Button  variant="outline" className="text-green-600 border-green-600 hover:bg-green-100 px-8 py-3 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                    <Button className="text-green-600 border-green-600 hover:bg-green-100 px-8 py-3 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
                         <Link to="/login">Sign In</Link>
                     </Button>
                 </div>
             </motion.div>
-            <motion.img
-                src="/placeholder.svg?height=300&width=300&text=GreenBlog"
-                alt="GreenBlog illustration"
-                className="mt-16 rounded-lg shadow-2xl"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-            />
         </div>
     );
 };

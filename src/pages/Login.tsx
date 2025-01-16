@@ -5,13 +5,17 @@ import { Input } from "../components/ui/input";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
 import { motion } from "framer-motion";
 import axios from "axios";
+import Loading from "./Loading.tsx";
 
 const Login: React.FC = () => {
+    const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
+
     async  function login(){
+        setLoading(true);
         try {
             const response = await axios.post("https://blogapp-medium-backend.onrender.com/api/v1/user/login", {
                 email: email,
@@ -24,8 +28,12 @@ const Login: React.FC = () => {
         }catch (e) {
             alert("Error during login");
         }
+        setLoading(false);
     }
 
+    if(loading){
+        return <Loading/>
+    }
 
 
     return (
@@ -46,7 +54,7 @@ const Login: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
             >
-                <Card className="w-full max-w-md bg-white shadow-2xl rounded-full">
+                <Card className="w-full max-w-md bg-white shadow-2xl rounded-xl">
                     <CardHeader className="space-y-1">
                         <CardTitle className="text-3xl font-bold text-center text-green-800">Sign In</CardTitle>
                         <CardDescription className="text-center text-green-600">Welcome back! Enter your details to access your garden of thoughts</CardDescription>
