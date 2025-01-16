@@ -41,7 +41,7 @@ const Login: React.FC = () => {
                             <Input id="email" type="email"
                                 //    onChange={(e)=>{
                                 // setEmail(e.target.value);
-                            {/*}} */}
+                            //}}
                                    placeholder="Enter your email" className="w-full px-3 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" />
                         </div>
                         <div className="space-y-2">
@@ -49,7 +49,7 @@ const Login: React.FC = () => {
                             <Input id="password" type="password"
                                 //    onChange={(e)=>{
                                 // setPassword(e.target.value);
-                            {/*}} */}
+                            //}}
                                    placeholder="Enter your password" className="w-full px-3 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
                         </div>
                         <div className="flex items-center justify-between">
