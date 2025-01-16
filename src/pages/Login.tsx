@@ -38,15 +38,19 @@ const Login: React.FC = () => {
                     <CardContent className="space-y-4">
                         <div className="space-y-2">
                             <label htmlFor="email" className="text-sm font-medium text-green-700">Email</label>
-                            <Input id="email" type="email" onChange={(e)=>{
+                            <Input id="email" type="email"
+                                //    onChange={(e)=>{
                                 // setEmail(e.target.value);
-                            }} placeholder="Enter your email" className="w-full px-3 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" />
+                            {/*}} */}
+                                   placeholder="Enter your email" className="w-full px-3 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" />
                         </div>
                         <div className="space-y-2">
                             <label htmlFor="password" className="text-sm font-medium text-green-700">Password</label>
-                            <Input id="password" type="password" onChange={(e)=>{
+                            <Input id="password" type="password"
+                                //    onChange={(e)=>{
                                 // setPassword(e.target.value);
-                            }} placeholder="Enter your password" className="w-full px-3 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
+                            {/*}} */}
+                                   placeholder="Enter your password" className="w-full px-3 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
                         </div>
                         <div className="flex items-center justify-between">
                             <label className="flex items-center">
