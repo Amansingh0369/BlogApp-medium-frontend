@@ -17,7 +17,7 @@ const Blog: React.FC = () => {
                     <nav className="flex space-x-4">
                         <Link to="/" className="text-gray-600 hover:text-gray-900">Home</Link>
                         <Link to="/write" className="text-gray-600 hover:text-gray-900">Write</Link>
-                        <Button asChild variant="outline" className="text-green-600 border-green-600 hover:bg-green-50">
+                        <Button  variant="outline" className="text-green-600 border-green-600 hover:bg-green-50">
                             <Link to="/">Sign Out</Link>
                         </Button>
                     </nav>

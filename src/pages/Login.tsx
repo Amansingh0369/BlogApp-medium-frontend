@@ -6,8 +6,8 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { motion } from "framer-motion";
 
 const Login: React.FC = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
 
 
 
