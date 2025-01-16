@@ -1,14 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import  Button  from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const Login: React.FC = () => {
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
+    async  function login(){
+        try {
+            const response = await axios.post("https://blogapp-medium-backend.onrender.com/api/v1/user/login", {
+                email: email,
+                password: password,
+            });
+
+            const jwt = response.data.token; // Ensure token exists in the backend response
+            localStorage.setItem("token", jwt); // Store the token in localStorage
+            navigate("/blog"); // Redirect to blog page
+        }catch (e) {
+            alert("Error during login");
+        }
+    }
 
 
 
@@ -39,17 +55,17 @@ const Login: React.FC = () => {
                         <div className="space-y-2">
                             <label htmlFor="email" className="text-sm font-medium text-green-700">Email</label>
                             <Input id="email" type="email"
-                                //    onChange={(e)=>{
-                                // setEmail(e.target.value);
-                            //}}
+                                   onChange={(e)=>{
+                                setEmail(e.target.value);
+                            }}
                                    placeholder="Enter your email" className="w-full px-3 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" />
                         </div>
                         <div className="space-y-2">
                             <label htmlFor="password" className="text-sm font-medium text-green-700">Password</label>
                             <Input id="password" type="password"
-                                //    onChange={(e)=>{
-                                // setPassword(e.target.value);
-                            //}}
+                                   onChange={(e)=>{
+                                setPassword(e.target.value);
+                            }}
                                    placeholder="Enter your password" className="w-full px-3 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
                         </div>
                         <div className="flex items-center justify-between">
@@ -59,7 +75,9 @@ const Login: React.FC = () => {
                             </label>
                             <a href="#" className="text-sm text-green-800 hover:underline">Forgot password?</a>
                         </div>
-                        <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md transition-colors duration-300">Sign In</Button>
+                        <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md transition-colors duration-300"
+                        onClick={login}
+                        >Login In</Button>
                     </CardContent>
                     <CardFooter>
                         <p className="text-center text-sm text-green-600 w-full">
