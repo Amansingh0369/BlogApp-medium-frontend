@@ -5,8 +5,8 @@ import axios from "axios";
 
 const Blog: React.FC = () => {
     const [loading, setLoading] = React.useState(true);
-    const [posts, setPosts] = React.useState([]);
-    const[reversedPost,setReversedPost]=useState([]);
+    const [posts, setPosts] = React.useState<any>([]);
+    const[reversedPost,setReversedPost]=useState<any>([]);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
