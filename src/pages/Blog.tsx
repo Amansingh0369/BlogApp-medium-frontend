@@ -3,10 +3,19 @@ import { Link } from 'react-router-dom';
 import  Button  from "../components/ui/button";
 import axios from "axios";
 
+interface Post {
+    id: string;
+    author: {
+        name: string;
+    };
+    title: string;
+    content: string;
+}
+
 const Blog: React.FC = () => {
     const [loading, setLoading] = React.useState(true);
-    const [posts, setPosts] = React.useState<any>([]);
-    const[reversedPost,setReversedPost]=useState<any>([]);
+    const [posts, setPosts] = useState<Post[]>([]);
+    const [reversedPost, setReversedPost] = useState<Post[]>([]);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
