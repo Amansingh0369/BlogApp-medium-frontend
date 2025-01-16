@@ -5,7 +5,7 @@ import Signup from "./pages/Signup.tsx";
 import Login from "./pages/Login.tsx";
 import Blog from "./pages/Blog.tsx";
 import Write from "./pages/Write.tsx";
-import Read from "./pages/Read.tsx";
+// import Read from "./pages/Read.tsx";
 
 function App() {
 
